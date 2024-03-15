@@ -1,0 +1,16 @@
+{
+    "user_proxy": [
+        {
+            "content": "\nThe following python code imports the `run_tests(candidate)` function from my_tests.py, and runs\nit on the function `monotonic`. This will run a set of automated unit tests to verify the\ncorrect implementation of `monotonic`. However, `monotonic` is only partially\nimplemented in the code below. Complete the implementation of `monotonic` and output\na new stand-alone code block that contains everything needed to run the tests, including: importing\n`my_tests`, calling `run_tests(monotonic)`, as well as monotonic's complete definition,\nsuch that this code block can be run directly in Python.\n\n```python\nfrom my_tests import run_tests\n\n\n\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n\n\n\n# Run the unit tests\nrun_tests(monotonic)\n```\n",
+            "role": "user"
+        },
+        {
+            "content": "To complete the `monotonic` function, we need to check whether the elements are strictly increasing or decreasing. If there is a mix of increasing and decreasing elements, it should return False. Here's the complete code:\n\n```python\nfrom my_tests import run_tests\n\n\ndef monotonic(l: list) -> bool:\n    \"\"\"Return True if the list elements are strictly monotonically increasing or decreasing;\n    otherwise, return False.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n    strictly_increasing = all(l[i] <= l[i+1] for i in range(len(l)-1))\n    strictly_decreasing = all(l[i] >= l[i+1] for i in range(len(l)-1))\n    return (strictly_increasing or strictly_decreasing)\n\n\n# Run the unit tests\nrun_tests(monotonic)\n```\n\nSave this code to a file named `my_func.py`. The user can now run the tests by executing this file. \n\n# filename: my_func.py",
+            "role": "assistant"
+        },
+        {
+            "content": "exitcode: 0 (execution succeeded)\nCode output: \nALL TESTS PASSED !#!#\nTERMINATE\n",
+            "role": "user"
+        }
+    ]
+}

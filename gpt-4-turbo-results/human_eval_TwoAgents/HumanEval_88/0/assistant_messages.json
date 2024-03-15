@@ -1,0 +1,16 @@
+{
+    "user_proxy": [
+        {
+            "content": "\nThe following python code imports the `run_tests(candidate)` function from my_tests.py, and runs\nit on the function `sort_array`. This will run a set of automated unit tests to verify the\ncorrect implementation of `sort_array`. However, `sort_array` is only partially\nimplemented in the code below. Complete the implementation of `sort_array` and output\na new stand-alone code block that contains everything needed to run the tests, including: importing\n`my_tests`, calling `run_tests(sort_array)`, as well as sort_array's complete definition,\nsuch that this code block can be run directly in Python.\n\n```python\nfrom my_tests import run_tests\n\n\ndef sort_array(array):\n    \"\"\"\n    Given an array of non-negative integers, return a copy of the given array after sorting,\n    you will sort the given array in ascending order if the sum( first index value, last index value) is odd,\n    or sort it in descending order if the sum( first index value, last index value) is even.\n\n    Note:\n    * don't change the given array.\n\n    Examples:\n    * sort_array([]) => []\n    * sort_array([5]) => [5]\n    * sort_array([2, 4, 3, 0, 1, 5]) => [0, 1, 2, 3, 4, 5]\n    * sort_array([2, 4, 3, 0, 1, 5, 6]) => [6, 5, 4, 3, 2, 1, 0]\n    \"\"\"\n\n\n\n# Run the unit tests\nrun_tests(sort_array)\n```\n",
+            "role": "user"
+        },
+        {
+            "content": "```python\n# filename: complete_sort_array.py\nfrom my_tests import run_tests\n\ndef sort_array(array):\n    \"\"\"\n    Given an array of non-negative integers, return a copy of the given array after sorting,\n    you will sort the given array in ascending order if the sum(first index value, last index value) is odd,\n    or sort it in descending order if the sum(first index value, last index value) is even.\n\n    Note:\n    * don't change the given array.\n\n    Examples:\n    * sort_array([]) => []\n    * sort_array([5]) => [5]\n    * sort_array([2, 4, 3, 0, 1, 5]) => [0, 1, 2, 3, 4, 5]\n    * sort_array([2, 4, 3, 0, 1, 5, 6]) => [6, 5, 4, 3, 2, 1, 0]\n    \"\"\"\n    if not array:  # handles empty array\n        return []\n\n    sorted_array = sorted(array)  # sorting in ascending order\n    if (array[0] + array[-1]) % 2 == 0:  # if sum of first and last element is even\n        sorted_array = sorted_array[::-1]  # reverse the array for descending order\n        \n    return sorted_array\n\n# Run the unit tests\nrun_tests(sort_array)\n```",
+            "role": "assistant"
+        },
+        {
+            "content": "exitcode: 0 (execution succeeded)\nCode output: \nALL TESTS PASSED !#!#\nTERMINATE\n",
+            "role": "user"
+        }
+    ]
+}

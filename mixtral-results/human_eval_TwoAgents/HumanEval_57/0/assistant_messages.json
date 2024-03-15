@@ -1,0 +1,16 @@
+{
+    "user_proxy": [
+        {
+            "content": "\nThe following python code imports the `run_tests(candidate)` function from my_tests.py, and runs\nit on the function `monotonic`. This will run a set of automated unit tests to verify the\ncorrect implementation of `monotonic`. However, `monotonic` is only partially\nimplemented in the code below. Complete the implementation of `monotonic` and output\na new stand-alone code block that contains everything needed to run the tests, including: importing\n`my_tests`, calling `run_tests(monotonic)`, as well as monotonic's complete definition,\nsuch that this code block can be run directly in Python.\n\n```python\nfrom my_tests import run_tests\n\n\n\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n\n\n\n# Run the unit tests\nrun_tests(monotonic)\n```\n",
+            "role": "user"
+        },
+        {
+            "content": "Here's the completed `monotonic` function and the code to run the unit tests:\n\n```python\nfrom my_tests import run_tests\n\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n    # Check if the list is monotonically increasing\n    increasing = all(x <= y for x, y in zip(l, l[1:]))\n    \n    # If not, check if the list is monotonically decreasing\n    if not increasing:\n        return all(x >= y for x, y in zip(l, l[1:]))\n    return increasing\n\n# Run the unit tests\nrun_tests(monotonic)\n```\n\nThis code imports the `run_tests` function from `my_tests`, defines the `monotonic` function, and then runs the unit tests using `run_tests(monotonic)`. The `monotonic` function checks if the list is monotonically increasing and, if not, checks if it's monotonically decreasing.",
+            "role": "assistant"
+        },
+        {
+            "content": "exitcode: 0 (execution succeeded)\nCode output: \nALL TESTS PASSED !#!#\nTERMINATE\n",
+            "role": "user"
+        }
+    ]
+}

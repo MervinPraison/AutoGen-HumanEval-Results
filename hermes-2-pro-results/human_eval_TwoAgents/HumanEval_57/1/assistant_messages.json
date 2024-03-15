@@ -1,0 +1,12 @@
+{
+    "user_proxy": [
+        {
+            "content": "\nThe following python code imports the `run_tests(candidate)` function from my_tests.py, and runs\nit on the function `monotonic`. This will run a set of automated unit tests to verify the\ncorrect implementation of `monotonic`. However, `monotonic` is only partially\nimplemented in the code below. Complete the implementation of `monotonic` and output\na new stand-alone code block that contains everything needed to run the tests, including: importing\n`my_tests`, calling `run_tests(monotonic)`, as well as monotonic's complete definition,\nsuch that this code block can be run directly in Python.\n\n```python\nfrom my_tests import run_tests\n\n\n\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n\n\n\n# Run the unit tests\nrun_tests(monotonic)\n```\n",
+            "role": "user"
+        },
+        {
+            "content": "To complete the `monotonic` function and run the tests, here's the full code:\n\n```python\nfrom my_tests import run_tests\n\n\ndef monotonic(l: list) -> bool:\n    \"\"\"Return True if list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n    monotonically_increasing = all(l[i] <= l[i+1] for i in range(len(l)-1)) or all(l[i] >= l[i+1] for i in range(len(l)-1))\n    return bool(monotonically_increasing)\n\n# Save the code to a file\n# filename: monotonic_tests.py\n```\n\nNow, you can run this code in Python to verify the `monotonic` function and execute the tests. After executing the tests, you should see a result indicating whether all tests passed or not. \n\nTERMINATE",
+            "role": "assistant"
+        }
+    ]
+}
